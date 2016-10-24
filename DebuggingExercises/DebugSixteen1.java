@@ -15,7 +15,9 @@ public class DebugSixteen1 extends JPanel
    public void paintComponent(Graphics gr)
    {
       super.paintComponent(gr);
-      for(corner = 150, radius = 2; radius < 200; radius += 6)
+      // Need to decrement the 'corner' dimension to create the bullseye shape
+      // instead of the cone
+      for(corner = 150, radius = 2; radius < 200; radius += 6, corner -= 3)
       {
          if(radius < 50)
             gr.setColor(Color.RED);
@@ -36,6 +38,8 @@ public class DebugSixteen1 extends JPanel
       JFrame frame = new JFrame();
       frame.add(new DebugSixteen1());
       frame.setSize(340, 340);
+      frame.setVisible(true);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
    }
 }

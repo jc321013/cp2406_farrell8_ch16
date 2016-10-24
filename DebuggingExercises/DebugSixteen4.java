@@ -6,14 +6,14 @@ import java.awt.Color;
 import java.awt.event.*;
 public class DebugSixteen4 extends JPanel implements ActionListener
 {
-   JLabel header = new JLabel("Outfit planner);
+   JLabel header = new JLabel("Outfit planner");
    JButton changeButton = new JButton("Change clothes");
    int counter = 0;
    int xTop[] = { 20, 40, 50, 60, 80, 75, 62, 66, 40, 38, 25, 20};
    int yTop[] = {142,130,138,130,138,148,142,160,160,142,148,142};
    Color[] colors = {Color.RED, Color.PINK, Color.YELLOW, Color.GREEN, Color.CYAN};
    Font font = new Font("Arial", Font.BOLD, 14);
-   final double price = 39.95;
+   final double PRICE = 39.95;
    final int X = 100;
    int y = 80;
    final int GAP = 20;
@@ -29,8 +29,8 @@ public class DebugSixteen4 extends JPanel implements ActionListener
    public void paintComponent(Graphics g)
    {
       super.paintComponent(g);
-      ++counter;
       g.setFont(font);
+      y = 80;
       g.setColor(colors[cycle]);
       g.fillPolygon(xTop, yTop, 12);
       g.setColor(Color.BLACK);
@@ -42,6 +42,7 @@ public class DebugSixteen4 extends JPanel implements ActionListener
    @Override
    public void actionPerformed(ActionEvent e)
    {
+      ++counter;
       cycle = counter % colors.length;
       repaint();
    }
